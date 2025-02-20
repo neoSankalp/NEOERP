@@ -16,17 +16,17 @@ import StudentCourses from "./pages/student/Courses";
 import StudentFees from "./pages/student/Fees";
 import TeacherDashboard from "./pages/teacher/Dashboard";
 import TeacherAttendance from "./pages/teacher/Attendance";
-import TeacherTimetable from "./pages/teacher/Timetable";
-import TeacherExams from "./pages/teacher/Exams";
+// import TeacherTimetable from "./pages/teacher/Timetable";
+// import TeacherExams from "./pages/teacher/Exams";
 import TeacherCourses from "./pages/teacher/Courses";
-import TeacherPlanner from "./pages/teacher/Planner";
+// import TeacherPlanner from "./pages/teacher/Planner";
 import AdminDashboard from "./pages/admin/Dashboard";
-import AdminUsers from "./pages/admin/Users";
-import AdminAttendance from "./pages/admin/Attendance";
-import AdminTimetable from "./pages/admin/Timetable";
-import AdminExams from "./pages/admin/Exams";
-import AdminCourses from "./pages/admin/Courses";
-import AdminFees from "./pages/admin/Fees";
+// import AdminUsers from "./pages/admin/Users";
+// import AdminAttendance from "./pages/admin/Attendance";
+// import AdminTimetable from "./pages/admin/Timetable";
+// import AdminExams from "./pages/admin/Exams";
+// import AdminCourses from "./pages/admin/Courses";
+// import AdminFees from "./pages/admin/Fees";
 import Login from "./pages/Login";
 
 function App() {
@@ -52,22 +52,22 @@ function App() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<TeacherDashboard />} />
           <Route path="attendance" element={<TeacherAttendance />} />
-          <Route path="timetable" element={<TeacherTimetable />} />
-          <Route path="exams" element={<TeacherExams />} />
+          {/* <Route path="timetable" element={<TeacherTimetable />} /> */}
+          {/* <Route path="exams" element={<TeacherExams />} /> */}
           <Route path="courses" element={<TeacherCourses />} />
-          <Route path="planner" element={<TeacherPlanner />} />
+          {/* <Route path="planner" element={<TeacherPlanner />} /> */}
         </Route>
 
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="users" element={<AdminUsers />} />
+          {/* <Route path="users" element={<AdminUsers />} />
           <Route path="attendance" element={<AdminAttendance />} />
           <Route path="timetable" element={<AdminTimetable />} />
           <Route path="exams" element={<AdminExams />} />
           <Route path="courses" element={<AdminCourses />} />
-          <Route path="fees" element={<AdminFees />} />
+          <Route path="fees" element={<AdminFees />} /> */}
         </Route>
 
         <Route path="/" element={<Navigate to="/login" replace />} />
