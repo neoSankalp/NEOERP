@@ -100,12 +100,12 @@ export default function Planner() {
         </Dialog>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-[1fr_3fr]">
         <Card>
           <CardHeader>
             <CardTitle>Calendar</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex justify-center">
             <Calendar
               mode="single"
               selected={date}

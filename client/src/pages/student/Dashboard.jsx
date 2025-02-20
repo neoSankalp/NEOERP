@@ -35,7 +35,7 @@ export default function Dashboard() {
     },
   ];
 
-  const recentExams = [
+  const recents = [
     {
       title: "DMAC 2025",
       date: "February 14, 2024",
@@ -120,7 +120,6 @@ export default function Dashboard() {
         <div>
           <h3 className="text-lg font-semibold">Attendance</h3>
           <div className="border rounded-lg p-4">
-            <h3 className="text-lg font-semibold mb-4">Attendance</h3>
             <div className="grid grid-cols-2 gap-y-2 text-sm md:text-base">
               <p className="font-semibold">Student Name:</p>
               <p>Dhruv Pal</p>
@@ -147,7 +146,7 @@ export default function Dashboard() {
         <div>
           <h3 className="text-lg font-semibold">Recents</h3>
           <div className="grid gap-4">
-            {recentExams.map((exam) => (
+            {recents.map((exam) => (
               <Card
                 key={exam.title}
                 className={`relative border-l-8 ${exam.color} p-4 rounded-lg shadow-md transition-transform transform hover:scale-[1.02]`}

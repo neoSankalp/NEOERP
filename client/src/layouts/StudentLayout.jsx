@@ -13,6 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const navigation = [
   { name: "Dashboard", href: "/student/dashboard", icon: LayoutDashboard },
@@ -24,8 +26,42 @@ const navigation = [
   { name: "Fee Payment", href: "/student/fees", icon: Wallet },
 ];
 
+const recents = [
+  {
+    title: "DMAC 2025",
+    date: "February 14, 2024",
+    regDate: "February 10, 2024",
+    color: "border-orange-400",
+  },
+  {
+    title: "Advanced Web Design",
+    date: "February 27, 2024",
+    regDate: "February 16, 2024",
+    color: "border-green-400",
+  },
+  {
+    title: "User Experience Research",
+    date: "February 23, 2024",
+    regDate: "February 18, 2024",
+    color: "border-purple-400",
+  },
+  {
+    title: "Digital Photography",
+    date: "February 20, 2024",
+    regDate: "February 14, 2024",
+    color: "border-gray-400",
+  },
+  {
+    title: "3D Animation",
+    date: "February 17, 2024",
+    regDate: "February 10, 2024",
+    color: "border-yellow-400",
+  },
+];
+
 export default function StudentLayout() {
   const location = useLocation();
+  const [showNotifications, setShowNotifications] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -71,14 +107,52 @@ export default function StudentLayout() {
 
         {/* Main Content */}
         <div className="flex flex-1 flex-col overflow-hidden">
-          <header className="flex h-16 items-center justify-between border-b bg-white px-6">
+          <header className="relative flex h-16 items-center justify-between border-b bg-white px-6">
             <h1 className="text-2xl font-semibold text-gray-900">
               Student Portal
             </h1>
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="icon">
+            <div className="flex items-center gap-4 relative">
+              {/* Bell Icon for Notifications */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setShowNotifications(!showNotifications)}
+              >
                 <Bell className="h-5 w-5" />
               </Button>
+
+              {/* Notifications Dropdown */}
+              {showNotifications && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-10 right-0 mt-2 w-80 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                >
+                  <div className="p-4 border-b text-gray-700 font-semibold">
+                    Recent Notifications
+                  </div>
+                  <div className="max-h-64 overflow-y-auto">
+                    {recents.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`p-3 border-b last:border-0 ${item.color} flex flex-col`}
+                      >
+                        <span className="font-medium">{item.title}</span>
+                        <span className="text-sm text-gray-500">
+                          📅 {item.date}
+                        </span>
+                        <span className="text-sm text-gray-500">
+                          📝 Last Reg: {item.regDate}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
+              {/* User Avatar */}
               <Avatar>
                 <AvatarImage src="/placeholder-user.jpg" />
                 <AvatarFallback>ST</AvatarFallback>
