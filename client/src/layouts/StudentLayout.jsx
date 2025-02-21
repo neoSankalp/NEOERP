@@ -68,12 +68,10 @@ export default function StudentLayout() {
       <div className="flex h-screen">
         {/* Sidebar */}
         <div className="hidden w-64 bg-[#0B1829] text-white lg:block">
-          <div className="flex h-16 items-center border-b border-gray-700 px-6">
-            <Link
-              to="/student/dashboard"
-              className="flex items-center gap-2 font-semibold"
-            >
-              <span className="text-xl">U TIPS</span>
+          <div className="flex h-24 items-center border-b border-gray-700 px-6">
+            <Link to="/student/dashboard" className="flex flex-col">
+              <h1 className="text-xl font-semibold">NeoSankalp-ERP</h1>
+              <span className="text-lg">Tips Dwarka</span>
             </Link>
           </div>
           <nav className="space-y-1 px-3 py-4">
